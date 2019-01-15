@@ -14,6 +14,7 @@ Vagrant.configure(2) do |config|
     dev.vm.hostname = 'drate'
 
     dev.vm.network 'private_network', ip: '192.168.33.44'
+    dev.vm.network 'forwarded_port', guest: 8080, host: 8080
 
     dev.ssh.forward_agent = true
     dev.vm.post_up_message =
