@@ -1,0 +1,7 @@
+---
+apt_packages:
+  - make
+  - g++
+  - ruby2.5-dev
+
+ruby_version: 2.5
