@@ -1,0 +1,20 @@
+---
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - ansible/**/*
+    - tmp/**/*
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - spec/**/*_spec.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*_spec.rb
+    - spec/factories/**/*
+    - spec/shared/**/*
+    - Vagrantfile
+
+Style/Documentation:
+  Enabled: false
