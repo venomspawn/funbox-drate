@@ -7,6 +7,7 @@ gem 'json-schema'
 gem 'puma'
 gem 'rails'
 gem 'rake'
+gem 'rb-inotify'
 
 group :development do
   gem 'awesome_print'
