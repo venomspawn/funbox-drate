@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root to: 'default/page#draw'
 
   get '/stream', to: 'default/stream#stream'
+  get '/admin', to: 'admin/page#draw'
 end

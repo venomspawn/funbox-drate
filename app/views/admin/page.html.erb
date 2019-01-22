@@ -1,0 +1,19 @@
+<h1>Administrative measures</h1>
+
+<%= form_tag(admin_url) do %>
+  <div>
+    <%= label_tag(:rate, 'Rate:') %>
+    <%= text_field_tag(:rate, arate[:rate], pattern: '^[0-9]+,[0-9]+$') %>
+  </div>
+  <div>
+    <%= label_tag(:rate, 'Date:') %>
+    <%= date_field_tag(:rate, arate[:date]) %>
+  </div>
+  <div>
+    <%= label_tag(:rate, 'Time:') %>
+    <%= time_field_tag(:rate, arate[:time]) %>
+  </div>
+  <div>
+    <%= submit_tag('Apply') %>
+  </div>
+<% end %>
