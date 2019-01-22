@@ -12,4 +12,6 @@ RSpec.configure do |config|
   end
 end
 
+RSpec::Matchers.define_negated_matcher :not_change, :change
+
 Dir["#{__dir__}/support/**/*.rb"].each(&method(:require))
