@@ -11,5 +11,5 @@ DRate::Actions::DRate.configure do |settings|
 end
 
 DRate::Notifier.instance.on_close_write(drate_path, :drate) do
-  DRate::Streams.instance.broadcast(DRate::Actions::Drate.show)
+  DRate::Streams.instance.broadcast(DRate::Actions::DRate.show)
 end
