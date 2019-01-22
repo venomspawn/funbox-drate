@@ -1,3 +1,16 @@
 <h1>Dollar's rate</h1>
 
 <div id="drate"><%= raw drate %></div>
+
+<script>
+  var url = "<%= stream_path %>";
+  var eventSource = new EventSource(url);
+
+  eventSource.onmessage = function(message) {
+    if (typeof message.data == 'undefined') {
+      return;
+    }
+
+    document.getElementById("drate").innerHTML = message.data
+  };
+</script>
