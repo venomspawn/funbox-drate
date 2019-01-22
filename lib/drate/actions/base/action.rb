@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'validator'
+
 module DRate
   # Namespace of action modules
   module Actions
@@ -7,7 +9,7 @@ module DRate
     module Base
       # Base action class, which provides check if parameters correspond to
       # JSON-schema
-      class Logic
+      class Action
         extend Validator
 
         # Initializes instance
