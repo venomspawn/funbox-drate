@@ -7,7 +7,13 @@ module DRate
       # file by path in {DRate::Actions::ARate} module's settings
       class Show
         # Associative array with values by default
-        DEFAULT = { rate: '', time: '' }.freeze
+        DEFAULT = { rate: '', date: '', time: '' }.freeze
+
+        # String with date format
+        DATE_FORMAT = '%Y-%m-%d'
+
+        # String with time format
+        TIME_FORMAT = '%H:%M:%S'
 
         # Returns associative array with strings of administratively put
         # dollar's rate and time till the rate is active. If an error appears,
@@ -17,8 +23,10 @@ module DRate
         def show
           path = ARate.settings.path.to_s
           rate = IO.read(path)
-          time = File.mtime(path).to_s
-          { rate: rate, time: time }
+          mtime = File.mtime(path)
+          date = mtime.strftime(DATE_FORMAT)
+          time = mtime.strftime(TIME_FORMAT)
+          { rate: rate, date: date, time: time }
         rescue StandardError
           DEFAULT
         end

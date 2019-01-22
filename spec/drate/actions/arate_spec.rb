@@ -49,11 +49,19 @@ RSpec.describe DRate::Actions::ARate do
           end
         end
 
+        describe 'value of `date` field' do
+          subject { result[:date] }
+
+          it 'should be modification date of the file by settings path' do
+            expect(subject).to be == File.mtime(path).strftime('%Y-%m-%d')
+          end
+        end
+
         describe 'value of `time` field' do
           subject { result[:time] }
 
           it 'should be modification time of the file by settings path' do
-            expect(subject).to be == File.mtime(path).to_s
+            expect(subject).to be == File.mtime(path).strftime('%H:%M:%S')
           end
         end
       end
@@ -65,6 +73,12 @@ RSpec.describe DRate::Actions::ARate do
 
         describe 'value of `rate` field' do
           subject { result[:rate] }
+
+          it { is_expected.to be_empty }
+        end
+
+        describe 'value of `date` field' do
+          subject { result[:date] }
 
           it { is_expected.to be_empty }
         end

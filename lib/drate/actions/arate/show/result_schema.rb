@@ -6,20 +6,53 @@ module DRate
       class Show
         # JSON-schema of action result
         RESULT_SCHEMA = {
-          type: :object,
-          properties: {
-            rate: {
-              type: :string
+          oneOf: [
+            {
+              type: :object,
+              properties: {
+                rate: {
+                  type: :string
+                },
+                date: {
+                  type: :string,
+                  pattern: /\A[0-9]{4}-[0-9]{2}-[0-9]{2}\z/
+                },
+                time: {
+                  type: :string,
+                  pattern: /\A[0-9]{2}:[0-9]{2}:[0-9]{2}\z/
+                }
+              },
+              required: %i[
+                rate
+                date
+                time
+              ],
+              additionalProperties: false
             },
-            time: {
-              type: :string
+            {
+              type: :object,
+              properties: {
+                rate: {
+                  type: :string,
+                  enum: ['']
+                },
+                date: {
+                  type: :string,
+                  enum: ['']
+                },
+                time: {
+                  type: :string,
+                  enum: ['']
+                }
+              },
+              required: %i[
+                rate
+                date
+                time
+              ],
+              additionalProperties: false
             }
-          },
-          required: %i[
-            rate
-            time
-          ],
-          additionalProperties: false
+          ]
         }.freeze
       end
     end
