@@ -13,3 +13,5 @@ RSpec.configure do |config|
 end
 
 Dir["#{__dir__}/support/**/*.rb"].each(&method(:require))
+
+require 'webmock/rspec'
