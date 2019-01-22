@@ -1,5 +1,5 @@
 run:
-	bundle exec bin/rails server --port 8080 --binding 0.0.0.0
+	bundle exec foreman start
 
 debug:
 	bundle exec bin/rails console

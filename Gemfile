@@ -3,6 +3,8 @@
 source 'https://rubygems.org'
 
 gem 'dotenv-rails'
+gem 'foreman'
+gem 'http'
 gem 'json-schema'
 gem 'puma'
 gem 'rails'
@@ -23,4 +25,5 @@ group :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'webmock'
 end
