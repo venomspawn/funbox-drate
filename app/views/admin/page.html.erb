@@ -1,17 +1,26 @@
+<%= button_to 'Root', root_url, method: :get %>
+
 <h1>Administrative measures</h1>
+
+<%
+  rate = arate[:rate]
+  date = arate[:date]
+  time = arate[:time]
+  pattern = '^[0-9]+,[0-9]+$'
+%>
 
 <%= form_tag(admin_url) do %>
   <div>
     <%= label_tag(:rate, 'Rate:') %>
-    <%= text_field_tag(:rate, arate[:rate], pattern: '^[0-9]+,[0-9]+$') %>
+    <%= text_field_tag(:rate, rate, pattern: pattern, required: true) %>
   </div>
   <div>
-    <%= label_tag(:rate, 'Date:') %>
-    <%= date_field_tag(:rate, arate[:date]) %>
+    <%= label_tag(:date, 'Date:') %>
+    <%= date_field_tag(:date, date, required: true) %>
   </div>
   <div>
-    <%= label_tag(:rate, 'Time:') %>
-    <%= time_field_tag(:rate, arate[:time]) %>
+    <%= label_tag(:time, 'Time:') %>
+    <%= time_field_tag(:time, time, required: true) %>
   </div>
   <div>
     <%= submit_tag('Apply') %>
