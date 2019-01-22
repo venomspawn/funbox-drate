@@ -20,6 +20,15 @@ module DRate
 
       settings_names :path
 
+      require_relative 'drate/fetch'
+
+      # Fetches dollar's rate from external site and returns a string with it
+      # @return [String]
+      #   string with dollar's rate
+      def self.fetch
+        Fetch.new.fetch
+      end
+
       require_relative 'drate/show'
 
       # Returns string with dollar's rate saved by path in settings. If an
