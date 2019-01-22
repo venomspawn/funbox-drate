@@ -30,6 +30,27 @@ module DRate
       def self.show
         Show.new.show
       end
+
+      require_relative 'arate/save'
+
+      # Performs the following:
+      #
+      # *   saves dollar's rate to the file by path in
+      #     {DRate::Actions::ARate} module's settings;
+      # *   sets `mtime` time of the same file to the one specified in action
+      #     parameters;
+      # *   saves dollar's rate to the file by path in
+      #     {DRate::Actions::DRate} module's settings
+      # @param [HashWithIndiffentAccess] params
+      #   associative array of parameters of the action
+      # @raise [JSON::Schema::ValidationError]
+      #   if provided parameters don't satisfy JSON schema of the action's
+      #   parameters
+      # @raise [ArgumentError]
+      #   if date and time can't be recovered from action parameters
+      def self.save(params)
+        Save.new(params).save
+      end
     end
   end
 end
