@@ -17,3 +17,10 @@ environment puma_env
 force_shutdown_after :immediately
 
 preload_app!
+
+on_worker_boot do
+  path = DRate::Actions::DRate.settings.path
+  DRate::Notifier.instance.on_close_write(path, :drate) do
+    DRate::Streams.instance.broadcast(DRate::Actions::DRate.show)
+  end
+end
