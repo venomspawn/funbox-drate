@@ -1,0 +1,22 @@
+---
+- hosts: local
+  become: yes
+
+  pre_tasks:
+    - name: "Autofollow to project on logon"
+      lineinfile:
+        dest: "/home/vagrant/.bashrc"
+        regexp: "^cd /vagrant"
+        line: "cd /vagrant"
+    - name: "Set environment variables"
+      lineinfile:
+        dest: "/home/vagrant/.bashrc"
+        regexp: "^export {{ item.var }}="
+        line: "export {{ item.var }}={{ item.value }}"
+      with_items:
+      - { var: "RAILS_ENV", value: "development" }
+
+  roles:
+    - role: ruby-brightbox
+    - role: apt
+    - role: ntp

@@ -1,0 +1,6 @@
+--readme README.md
+--title 'Documentation to solution to `dollar rate` test problem'
+--charset utf-8
+--markup markdown
+--private
+- README.md CHANGELOG.md LICENSE
