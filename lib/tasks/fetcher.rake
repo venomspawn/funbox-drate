@@ -14,6 +14,7 @@ task run_fetcher: :environment do
 
   thread = Thread.new do
     loop do
+      next sleep(delay) if File.mtime(path) > Time.now
       IO.write(path, DRate::Actions::DRate.fetch)
       sleep(delay)
     end
