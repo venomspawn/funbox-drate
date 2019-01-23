@@ -11,12 +11,10 @@ module DRate
 
         # Performs the following:
         #
-        # *   saves dollar's rate to the file by path in
-        #     {DRate::Actions::ARate} module's settings;
-        # *   sets `mtime` time of the same file to the one specified in action
-        #     parameters;
-        # *   saves dollar's rate to the file by path in
-        #     {DRate::Actions::DRate} module's settings
+        # *   saves dollar's rate to the files by paths in settings of
+        #     {DRate::Actions::ARate} and {DRate::Actions::DRate} modules;
+        # *   sets `mtime` time of the same files to the one specified in
+        #     action parameters
         # @raise [ArgumentError]
         #   if date and time can't be recovered from action parameters
         def save
