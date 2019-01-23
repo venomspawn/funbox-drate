@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Namespace for classes of controllers which handle requests on administrative
+# measures
 module Admin
   # Class of controllers which handle requests on page with administratively
   # put dollar's rate
