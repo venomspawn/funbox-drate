@@ -12,6 +12,6 @@ RSpec.configure do |config|
   end
 end
 
-Dir["#{__dir__}/support/**/*.rb"].each(&method(:require))
+RSpec::Matchers.define_negated_matcher :not_change, :change
 
-require 'webmock/rspec'
+Dir["#{__dir__}/support/**/*.rb"].each(&method(:require))

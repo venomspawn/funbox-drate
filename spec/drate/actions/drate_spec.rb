@@ -35,7 +35,7 @@ RSpec.describe DRate::Actions::DRate do
       context 'when no error appears' do
         before { stub_request(:get, /cbr/).to_return(body: body) }
 
-        let(:body) { %Q{<Valute ID="R01235"><Value>#{value}</Value></Valute>} }
+        let(:body) { %(<Valute ID="R01235"><Value>#{value}</Value></Valute>) }
         let(:value) { '123.456' }
 
         it { is_expected.to be_a(String) }
@@ -48,7 +48,7 @@ RSpec.describe DRate::Actions::DRate do
       context 'when response body is not supported' do
         before { stub_request(:get, /cbr/).to_return(body: body) }
 
-        let(:body) { %Q{<Valute ID="R01235"><Valu3></Valu3></Valute>} }
+        let(:body) { '<Valute ID="R01235"><Valu3></Valu3></Valute>' }
 
         it { is_expected.to be_a(String) }
 

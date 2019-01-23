@@ -12,7 +12,7 @@ module DRate
 
         # Regular expression to extract dollar's rate
         REGEXP =
-          /<Valute ID="R01235">.*<Value>(.*)<\/Value>.*<\/Valute>/.freeze
+          %r{<Valute ID="R01235">.*<Value>(.*)</Value>.*</Valute>}.freeze
 
         # Default value in case of errors
         DEFAULT = ''
