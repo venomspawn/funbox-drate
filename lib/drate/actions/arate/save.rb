@@ -18,11 +18,9 @@ module DRate
         # @raise [ArgumentError]
         #   if date and time can't be recovered from action parameters
         def save
-          mtime = parsed_time
-          IO.write(ARate.settings.path, rate)
-          File.utime(Time.now, mtime, ARate.settings.path)
-          IO.write(DRate.settings.path, rate)
-          File.utime(Time.now, mtime, DRate.settings.path)
+          mtime = parse_time
+          save_rate(ARate.settings.path, mtime)
+          save_rate(DRate.settings.path, mtime)
         end
 
         private
@@ -42,8 +40,20 @@ module DRate
         #   recovered time
         # @raise [ArgumentError]
         #   if date and time can't be recovered from action parameters
-        def parsed_time
+        def parse_time
           Time.strptime("#{params[:date]} #{params[:time]}", STRPTIME_FORMAT)
+        end
+
+        # Saves dollar's rate to the file by the path and updates modification
+        # time of the file
+        # @param [#to_s] path
+        #   file's path
+        # @param [Time] mtime
+        #   modification time of the file
+        def save_rate(path, mtime)
+          path = path.to_s
+          IO.write(path, rate)
+          File.utime(Time.now, mtime, path)
         end
       end
     end
