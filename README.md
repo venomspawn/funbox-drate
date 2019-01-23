@@ -46,7 +46,7 @@ the case). The other deviation needed to mention concludes from the following:
 *   even latest versions of Firefox don't support `datetime-local` type of
     input fields.
 
-As a result admin page uses _two_ fields instead of one: one for date, one for
+As a result, admin page uses _two_ fields instead of one: one for date, one for
 time. Two fields bring two parameters to work with in request processing on the
 rate submit.
 
