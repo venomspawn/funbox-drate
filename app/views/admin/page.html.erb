@@ -9,6 +9,10 @@
   pattern = '^[0-9]+,[0-9]+$'
 %>
 
+<% if defined?(notice) %>
+  <div><%= notice %></div>
+<% end %>
+
 <%= form_tag(admin_url) do %>
   <div>
     <%= label_tag(:rate, 'Rate:') %>
