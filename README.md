@@ -1,7 +1,8 @@
 # Solution to `dollar's rate` problem
 
-This project contains solution to `dollar's rate` test problem from FunBox's
-test case. The following technologies are used:
+This project contains solution to `dollar's rate` test problem from [FunBox's
+test case](https://dl.funbox.ru/qt-ruby.pdf). The following technologies are
+used:
 
 *   [Ruby](https://www.ruby-lang.org/en/) as main programming language;
 *   [Puma](https://github.com/puma/puma) as HTTP-server;
